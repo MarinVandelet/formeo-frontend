@@ -65,22 +65,17 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* BOTTOM BAR */}
+      {/* LIENS */}
       <div className="border-t border-slate-200">
         <div className="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row gap-2 sm:items-center sm:justify-between">
           <p className="text-xs text-slate-500">
             © {new Date().getFullYear()} Formeo — Tous droits réservés.
           </p>
           <div className="flex gap-4 text-xs text-slate-500">
-            <a href="#" className="hover:text-slate-900">
-              Mentions légales
-            </a>
-            <a href="#" className="hover:text-slate-900">
-              Politique de confidentialité
-            </a>
-            <a href="#" className="hover:text-slate-900">
-              CGU
-            </a>
+            <Link to="/mentions-legales" className="hover:text-slate-900"> Mentions légales
+            </Link>
+            <Link to="/politique-confidentialite" className="hover:text-slate-900"> Politique de confidentialité
+            </Link>
           </div>
         </div>
       </div>
