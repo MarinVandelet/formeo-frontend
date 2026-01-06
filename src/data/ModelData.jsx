@@ -3,54 +3,54 @@ export const ModelData = [
     id: "PC",
     label: "Ordinateur",
     objectName: "Cube005",
-    image: "/images/1.png"
+    image: "/images/10.png"
   },
   {
-    id: "tableau",
-    label: "Tableau",
-    objectName: "Cube006",
-    image: "/images/2.png"
+    id: "Clavier",
+    label: "Clavier",
+    objectName: "clavier001",
+    image: "/images/7.png"
+  },
+  {
+    id: "Souris",
+    label: "Souris",
+    objectName: "Souris",
+    image: "/images/8.png"
   },
   {
     id: "Chaise",
     label: "Chaise",
     objectName: "Rectangle053",
-    image: "/images/9.png"
+    image: "/images/26.png"
   },
   {
     id: "Enceinte",
     label: "Enceinte",
     objectName: "Cube030",
-    image: "/images/4.png"
+    image: "/images/14.png"
   },
   {
     id: "Bureau",
     label: "Bureau",
     objectName: "Rectangle005",
-    image: "/images/10.png"
-  },
-  {
-    id: "Fenetre",
-    label: "Fenètre",
-    objectName: "Mur002",
-    image: "/images/1.png"
+    image: "/images/25.png"
   },
   {
     id: "Video-proj",
     label: "Vidéo Projecteur",
-    objectName: "Cube049",
-    image: "/images/2.png"
-  },
-  {
-    id: "Lumiere",
-    label: "Lumière LED",
-    objectName: "Lumière_salle007",
-    image: "/images/8.png"
+    objectName: "Video-projecteur",
+    image: "/images/13.png"
   },
   {
     id: "Prise",
     label: "Prises",
     objectName: "Cube008",
-    image: "/images/10.png"
+    image: "/images/28.png"
+  },
+  {
+    id: "Corbeille",
+    label: "Corbeille",
+    objectName: "Poubelle",
+    image: "/images/27.png"
   }
 ];
