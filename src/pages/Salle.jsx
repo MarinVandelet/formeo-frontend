@@ -15,7 +15,7 @@ export default function Salle() {
   // Visibilité des éléments
   // créer l’état initial en inversant la logique de masquage
 
-const defaultVisible = ["PC", "tableau", "eleves"]; // IDs visibles par défaut
+const defaultVisible = []; // IDs visibles par défaut
 
 const initialVisibility = Object.fromEntries(
   ModelDataVisi.map((item) =>
@@ -104,10 +104,10 @@ const [visibleElements, setVisibleElements] = useState(initialVisibility);
         <button
           key={num}
           onClick={() => {
-            if (num === 2) goToPositionSmooth([0, 1, 2]);
-            if (num === 3) goToPositionSmooth([10, 5, 10]);
-            if (num === 4) goToPositionSmooth([10, 5, 0]);
-            if (num === 5) goToPositionSmooth([0, 25, 0]);
+            if (num === 2) goToPositionSmooth([0, 4, 8]);
+            if (num === 3) goToPositionSmooth([40, 20, 40]);
+            if (num === 4) goToPositionSmooth([40, 20, 0]);
+            if (num === 5) goToPositionSmooth([0, 100, 0]);
           }}
           className="w-10 h-10 bg-indigo-500 text-white rounded-lg shadow hover:bg-indigo-600"
         >
