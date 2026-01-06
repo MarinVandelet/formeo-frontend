@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { fetchMyInscriptions } from "../../api/inscriptions";
 import { createCheckoutSession } from "../../api/payment";
 import {
@@ -68,6 +69,8 @@ const attestationLabel = (type) => {
 };
 
 const StudentProfile = ({ user }) => {
+  const navigate = useNavigate();
+
   const [inscriptions, setInscriptions] = useState([]);
   const [emargements, setEmargements] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -277,23 +280,31 @@ const StudentProfile = ({ user }) => {
                     onClick={() => handlePay(ins.id)}
                     className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-indigo-600 text-white text-xs hover:bg-indigo-700"
                   >
-                    <span className="material-icons text-xs">
-                      credit_card
-                    </span>
+                    <span className="material-icons text-xs">credit_card</span>
                     <span>Payer (Stripe)</span>
                   </button>
                 )}
 
                 {ins.statut === "PAYEE" && (
-                  <button
-                    onClick={() => openSignModal(ins.session.id)}
-                    className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-emerald-600 text-white text-xs hover:bg-emerald-700"
-                  >
-                    <span className="material-icons text-xs">
-                      draw
-                    </span>
-                    <span>Émarger aujourd&apos;hui</span>
-                  </button>
+                  <div className="flex flex-wrap gap-2">
+                    <button
+                      onClick={() => navigate(`/salle/${ins.session.id}`)}
+                      className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-slate-900 text-white text-xs hover:bg-slate-800"
+                      title="Accéder à la salle 3D"
+                    >
+                      <span className="material-icons text-xs">view_in_ar</span>
+                      <span>Salle 3D</span>
+                    </button>
+
+                    <button
+                      onClick={() => openSignModal(ins.session.id)}
+                      className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-emerald-600 text-white text-xs hover:bg-emerald-700"
+                      title="Émarger aujourd'hui"
+                    >
+                      <span className="material-icons text-xs">draw</span>
+                      <span>Émarger</span>
+                    </button>
+                  </div>
                 )}
               </div>
             </div>
@@ -428,7 +439,9 @@ const StudentProfile = ({ user }) => {
             <div className="flex justify-between items-center pt-2">
               <button
                 type="button"
-                onClick={() => sigCanvasRef.current && sigCanvasRef.current.clear()}
+                onClick={() =>
+                  sigCanvasRef.current && sigCanvasRef.current.clear()
+                }
                 className="px-3 py-1.5 text-xs border border-slate-300 rounded-full hover:bg-slate-100"
               >
                 Effacer
