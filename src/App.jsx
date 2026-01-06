@@ -9,6 +9,8 @@ import PaymentSuccessPage from "./pages/PaymentSuccessPage.jsx";
 import AdminDashboardPage from "./pages/AdminDashboardPage.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Salle from "./pages/Salle.jsx";
+import MentionsLegalesPage from "./pages/legal/MentionsLegalesPage.jsx";
+import PolitiqueConfidentialitePage from "./pages/legal/PolitiqueConfidentialitePage.jsx";
 
 const App = () => {
   return (
@@ -19,10 +21,9 @@ const App = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/auth" element={<AuthPage />} />
           <Route path="/categories/:id" element={<CategoryFormationsPage />} />
-          <Route
-            path="/formations/:id/sessions"
-            element={<FormationSessionsPage />}
-          />
+          <Route path="/formations/:id/sessions" element={<FormationSessionsPage />}/>
+          <Route path="/mentions-legales" element={<MentionsLegalesPage />} />
+          <Route path="/politique-confidentialite" element={<PolitiqueConfidentialitePage />}/>
           <Route path="/salle" element={<Salle />} />
           <Route path="/salle/:sessionId" element={<Salle />} /> 
           <Route path="/profil" element={<ProfilePage />} />
