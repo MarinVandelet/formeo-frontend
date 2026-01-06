@@ -3,7 +3,7 @@ import api from "./client";
 // Télécharge l'attestation (succès ou présence) liée à une inscription.
 // Le backend décide du type en fonction de la note (>=10 : succès, sinon présence).
 export const downloadAttestation = async (inscriptionId) => {
-  const response = await api.get(`/api/attestations/${inscriptionId}`, {
+  const response = await api.get(`/attestations/${inscriptionId}`, {
     responseType: "blob",
   });
 
