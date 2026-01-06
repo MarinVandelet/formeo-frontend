@@ -8,7 +8,7 @@ import Listener from "./Listener";
 
 
 
-const MODEL_URL = "https://pub-1a75df19d308437a91016802c6a3adef.r2.dev/test-draco.glb";
+const MODEL_URL = "https://pub-1a75df19d308437a91016802c6a3adef.r2.dev/Salle-draco.glb";
 
 const ClassroomModel = ({ backfaceCulling, visibleElements, onLoaded }) => {
   const { scene } = useGLTF(MODEL_URL);
@@ -119,7 +119,7 @@ export default function Salle3DWrapper({ zoomTarget, ...props }) {
   }, [zoomTarget]);
 
   return (
-    <Canvas className="salle-canvas" camera={{ position: [10, 5, 10], fov: 60 }}>
+    <Canvas className="salle-canvas" camera={{ position: [40, 20, 40], fov: 60 }}>
       <Salle3D ref={salleRef} {...props} />
     </Canvas>
   );

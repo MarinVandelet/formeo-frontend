@@ -61,7 +61,7 @@ export default function Listener({ enabled = true, speed = 5 }) {
     if (keys.current["Space"]) {
       camera.position.y += velocity;
     }
-    if (keys.current["ShiftLeft"]) {
+    if (keys.current["Alt"]) {
       camera.position.y -= velocity;
     }
   });
