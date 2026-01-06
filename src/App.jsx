@@ -8,6 +8,7 @@ import ProfilePage from "./pages/ProfilePage.jsx";
 import PaymentSuccessPage from "./pages/PaymentSuccessPage.jsx";
 import AdminDashboardPage from "./pages/AdminDashboardPage.jsx";
 import Navbar from "./components/Navbar.jsx";
+import Salle from "./pages/Salle.jsx";
 
 const App = () => {
   return (
@@ -22,6 +23,8 @@ const App = () => {
             path="/formations/:id/sessions"
             element={<FormationSessionsPage />}
           />
+          <Route path="/salle" element={<Salle />} />
+          <Route path="/salle/:sessionId" element={<Salle />} /> 
           <Route path="/profil" element={<ProfilePage />} />
           <Route path="/paiement/success" element={<PaymentSuccessPage />} />
           <Route path="/admin" element={<AdminDashboardPage />} />
