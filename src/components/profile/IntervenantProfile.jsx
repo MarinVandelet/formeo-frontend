@@ -35,7 +35,7 @@ const IntervenantProfile = ({ user, isAdmin = false }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  // ÉMARGEMENTS
+  // émargements
   const [showModal, setShowModal] = useState(false);
   const [modalSession, setModalSession] = useState(null);
   const [modalDate, setModalDate] = useState("");
@@ -43,11 +43,11 @@ const IntervenantProfile = ({ user, isAdmin = false }) => {
   const [modalLoading, setModalLoading] = useState(false);
   const [modalError, setModalError] = useState("");
 
-  // Historique d'émargements
+  // histoirique d'émargements
   const [recentSheets, setRecentSheets] = useState([]);
   const [showAllSheets, setShowAllSheets] = useState(false);
 
-  // ÉVALUATIONS
+  // évaluations
   const [evalModalOpen, setEvalModalOpen] = useState(false);
   const [evalSession, setEvalSession] = useState(null);
   const [evalLines, setEvalLines] = useState([]); // [{ inscriptionId, prenom, nom, email, note }]
@@ -55,7 +55,7 @@ const IntervenantProfile = ({ user, isAdmin = false }) => {
   const [evalError, setEvalError] = useState("");
   const [evalSaving, setEvalSaving] = useState(false);
 
-  // Historique évaluations
+  // historique évaluations
   const [recentEvalSheets, setRecentEvalSheets] = useState([]);
   const [showAllEvalSheets, setShowAllEvalSheets] = useState(false);
 
@@ -77,7 +77,7 @@ const IntervenantProfile = ({ user, isAdmin = false }) => {
     loadSessions();
   }, []);
 
-  // FEUILLE D'ÉMARGEMENT
+  // feuille d'emargement
 
   const addToRecentSheets = (session, dateStr, lines) => {
     setRecentSheets((prev) => {
@@ -150,7 +150,7 @@ const IntervenantProfile = ({ user, isAdmin = false }) => {
     ? recentSheets
     : recentSheets.slice(0, 3);
 
-  // ÉVALUATIONS
+  // evaluations
 
   const addToRecentEvalSheets = (session, lines) => {
     setRecentEvalSheets((prev) => {
@@ -233,7 +233,7 @@ const IntervenantProfile = ({ user, isAdmin = false }) => {
     ? recentEvalSheets
     : recentEvalSheets.slice(0, 3);
 
-  // FRONT
+  // Partie front
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-10 space-y-6">
