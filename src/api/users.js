@@ -1,7 +1,5 @@
 import api from "./client";
 
-// NOTE : adapte si besoin aux champs attendus par ton UtilisateurController
-
 export const fetchUsers = async () => {
   const res = await api.get("/utilisateurs");
   return res.data;
