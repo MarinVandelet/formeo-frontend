@@ -124,11 +124,13 @@ const [visibleElements, setVisibleElements] = useState(initialVisibility);
       </button>
 
       <button
-        onClick={() => navigate("/")}
-        className="w-10 h-10 bg-red-500 text-white rounded-lg shadow hover:bg-red-600"
+        onClick={() => navigate("/profil")}
+        className="w-10 h-10 bg-emerald-500 text-white rounded-lg shadow hover:bg-emerald-600"
+        title="Retour au profil étudiant"
       >
-        ⬅
+        👤
       </button>
+
     </div>
 
     {/* Canvas 3D */}
