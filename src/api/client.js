@@ -1,10 +1,10 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL, // adapte si ton back n'est pas là
+  baseURL: import.meta.env.VITE_API_URL,
 });
 
-// Ajout automatique du token si présent
+// Ajout automatique du token 
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
   if (token) {
