@@ -43,19 +43,19 @@ const IntervenantProfile = ({ user, isAdmin = false }) => {
   const [modalLoading, setModalLoading] = useState(false);
   const [modalError, setModalError] = useState("");
 
-  // histoirique d'émargements
+  // historique d'emargements
   const [recentSheets, setRecentSheets] = useState([]);
   const [showAllSheets, setShowAllSheets] = useState(false);
 
-  // évaluations
+  // evaluations
   const [evalModalOpen, setEvalModalOpen] = useState(false);
   const [evalSession, setEvalSession] = useState(null);
-  const [evalLines, setEvalLines] = useState([]); // [{ inscriptionId, prenom, nom, email, note }]
+  const [evalLines, setEvalLines] = useState([]);
   const [evalLoading, setEvalLoading] = useState(false);
   const [evalError, setEvalError] = useState("");
   const [evalSaving, setEvalSaving] = useState(false);
 
-  // historique évaluations
+  // historique evals
   const [recentEvalSheets, setRecentEvalSheets] = useState([]);
   const [showAllEvalSheets, setShowAllEvalSheets] = useState(false);
 
@@ -77,7 +77,7 @@ const IntervenantProfile = ({ user, isAdmin = false }) => {
     loadSessions();
   }, []);
 
-  // feuille d'emargement
+  // feuille d'émargement
 
   const addToRecentSheets = (session, dateStr, lines) => {
     setRecentSheets((prev) => {
@@ -141,16 +141,16 @@ const IntervenantProfile = ({ user, isAdmin = false }) => {
     if (!session) return;
     setModalSession(session);
     setModalDate(sheet.date);
-    setModalLines(sheet.lines); // cache
+    setModalLines(sheet.lines);
     setShowModal(true);
-    loadFeuille(session, sheet.date); // rafraîchir
+    loadFeuille(session, sheet.date);
   };
 
   const displayedSheets = showAllSheets
     ? recentSheets
     : recentSheets.slice(0, 3);
 
-  // evaluations
+  // Evaluations
 
   const addToRecentEvalSheets = (session, lines) => {
     setRecentEvalSheets((prev) => {
@@ -233,7 +233,7 @@ const IntervenantProfile = ({ user, isAdmin = false }) => {
     ? recentEvalSheets
     : recentEvalSheets.slice(0, 3);
 
-  // Partie front
+  // FRONT
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-10 space-y-6">
@@ -297,15 +297,13 @@ const IntervenantProfile = ({ user, isAdmin = false }) => {
               <div className="flex flex-wrap justify-end gap-2">
                 <button
                   onClick={() => openFeuilleModal(s)}
-                  className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-slate-100 text-slate-800 text-xs hover:bg-slate-200"
-                >
+                  className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-slate-100 text-slate-800 text-xs hover:bg-slate-200">
                   <span className="material-icons text-xs">fact_check</span>
                   <span>Feuille d&apos;émargement</span>
                 </button>
                 <button
                   onClick={() => openEvalModal(s)}
-                  className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-indigo-600 text-white text-xs hover:bg-indigo-700"
-                >
+                  className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-indigo-600 text-white text-xs hover:bg-indigo-700">
                   <span className="material-icons text-xs">grading</span>
                   <span>Évaluations</span>
                 </button>
@@ -324,8 +322,7 @@ const IntervenantProfile = ({ user, isAdmin = false }) => {
             {recentSheets.length > 3 && (
               <button
                 className="text-xs text-indigo-600 hover:underline"
-                onClick={() => setShowAllSheets((v) => !v)}
-              >
+                onClick={() => setShowAllSheets((v) => !v)}>
                 {showAllSheets ? "Voir moins" : "Voir plus"}
               </button>
             )}
@@ -339,8 +336,7 @@ const IntervenantProfile = ({ user, isAdmin = false }) => {
                 <button
                   key={`${sheet.sessionId}-${sheet.date}`}
                   onClick={() => openFromHistory(sheet)}
-                  className="w-full text-left bg-white border border-slate-200 rounded-lg p-3 hover:border-indigo-400 hover:shadow-sm transition flex flex-col md:flex-row md:items-center md:justify-between gap-2"
-                >
+                  className="w-full text-left bg-white border border-slate-200 rounded-lg p-3 hover:border-indigo-400 hover:shadow-sm transition flex flex-col md:flex-row md:items-center md:justify-between gap-2">
                   <div>
                     <p className="text-sm font-medium text-slate-900">
                       {sheet.sessionTitle} – Session #{sheet.sessionId}
@@ -393,8 +389,7 @@ const IntervenantProfile = ({ user, isAdmin = false }) => {
                     );
                     if (session) openEvalModal(session);
                   }}
-                  className="w-full text-left bg-white border border-slate-200 rounded-lg p-3 hover:border-indigo-400 hover:shadow-sm transition flex flex-col md:flex-row md:items-center md:justify-between gap-2"
-                >
+                  className="w-full text-left bg-white border border-slate-200 rounded-lg p-3 hover:border-indigo-400 hover:shadow-sm transition flex flex-col md:flex-row md:items-center md:justify-between gap-2">
                   <div>
                     <p className="text-sm font-medium text-slate-900">
                       {sheet.sessionTitle} – Session #{sheet.sessionId}
@@ -429,8 +424,7 @@ const IntervenantProfile = ({ user, isAdmin = false }) => {
               </div>
               <button
                 onClick={() => setShowModal(false)}
-                className="text-slate-400 hover:text-slate-700"
-              >
+                className="text-slate-400 hover:text-slate-700">
                 <span className="material-icons text-xl">close</span>
               </button>
             </div>
@@ -498,8 +492,7 @@ const IntervenantProfile = ({ user, isAdmin = false }) => {
                               l.present
                                 ? "bg-emerald-100 text-emerald-700"
                                 : "bg-slate-100 text-slate-500"
-                            }`}
-                          >
+                            }`}>
                             {l.present ? "Présent" : "Absent"}
                           </span>
                         </td>
@@ -542,8 +535,7 @@ const IntervenantProfile = ({ user, isAdmin = false }) => {
               </div>
               <button
                 onClick={() => setEvalModalOpen(false)}
-                className="text-slate-400 hover:text-slate-700"
-              >
+                className="text-slate-400 hover:text-slate-700">
                 <span className="material-icons text-xl">close</span>
               </button>
             </div>
@@ -609,17 +601,11 @@ const IntervenantProfile = ({ user, isAdmin = false }) => {
             )}
 
             <div className="flex justify-end gap-2 pt-2">
-              <button
-                onClick={() => setEvalModalOpen(false)}
-                className="px-3 py-1.5 text-xs border border-slate-300 rounded-full hover:bg-slate-100"
-              >
-                Fermer
-              </button>
+              <button onClick={() => setEvalModalOpen(false)} className="px-3 py-1.5 text-xs border border-slate-300 rounded-full hover:bg-slate-100">Fermer</button>
               <button
                 onClick={handleSaveEvaluations}
                 disabled={evalSaving || evalLoading || evalLines.length === 0}
-                className="px-3 py-1.5 text-xs rounded-full bg-indigo-600 text-white hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
+                className="px-3 py-1.5 text-xs rounded-full bg-indigo-600 text-white hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed">
                 {evalSaving ? "Enregistrement..." : "Enregistrer les notes"}
               </button>
             </div>
