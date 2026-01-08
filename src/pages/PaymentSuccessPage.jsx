@@ -5,7 +5,7 @@ import { confirmPayment } from "../api/payment";
 const PaymentSuccessPage = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
-  const [status, setStatus] = useState("loading"); // loading | ok | error
+  const [status, setStatus] = useState("loading");
   const [message, setMessage] = useState("");
 
   useEffect(() => {
@@ -57,8 +57,7 @@ const PaymentSuccessPage = () => {
             <p
               className={`text-sm ${
                 status === "ok" ? "text-green-600" : "text-red-600"
-              }`}
-            >
+              }`}>
               {message}
             </p>
           </>
@@ -67,15 +66,13 @@ const PaymentSuccessPage = () => {
         <div className="pt-4 flex flex-col gap-2 items-center">
           <button
             onClick={() => navigate("/profil")}
-            className="inline-flex items-center gap-1 px-4 py-2 rounded-full bg-indigo-600 text-white text-sm hover:bg-indigo-700"
-          >
+            className="inline-flex items-center gap-1 px-4 py-2 rounded-full bg-indigo-600 text-white text-sm hover:bg-indigo-700">
             <span className="material-icons text-sm">person</span>
             <span>Voir mon profil</span>
           </button>
           <Link
             to="/"
-            className="text-xs text-slate-500 hover:text-slate-700"
-          >
+            className="text-xs text-slate-500 hover:text-slate-700">
             Revenir à l&apos;accueil
           </Link>
         </div>
