@@ -5,7 +5,6 @@ const Footer = () => {
   return (
     <footer className="border-t border-slate-200 bg-white">
       <div className="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-8">
-        {/* BRAND */}
         <div>
           <div className="flex items-center gap-2">
             <span className="material-icons text-indigo-600">school</span>
@@ -17,7 +16,7 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* NAVIGATION */}
+        {/* navigation */}
         <div>
           <p className="text-sm font-semibold text-slate-900">Navigation</p>
           <ul className="mt-3 space-y-2 text-sm text-slate-600">
@@ -39,7 +38,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* CONTACT */}
+        {/* contact */}
         <div>
           <p className="text-sm font-semibold text-slate-900">Contact</p>
           <ul className="mt-3 space-y-2 text-sm text-slate-600">
@@ -65,7 +64,7 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* LIENS */}
+      {/* liens */}
       <div className="border-t border-slate-200">
         <div className="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row gap-2 sm:items-center sm:justify-between">
           <p className="text-xs text-slate-500">
