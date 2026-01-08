@@ -7,10 +7,8 @@ const PolitiqueConfidentialitePage = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50">
-      {/* CONTENU */}
       <main className="flex-grow">
         <div className="max-w-4xl mx-auto px-4 py-12 text-slate-800">
-          {/* Bouton retour */}
           <button
             onClick={() => navigate(-1)}
             className="inline-flex items-center gap-2 mb-6 text-sm text-indigo-600 hover:text-indigo-800"
@@ -96,11 +94,11 @@ const PolitiqueConfidentialitePage = () => {
           </section>
         </div>
       </main>
-
-      {/* FOOTER */}
+      
       <Footer />
     </div>
   );
 };
 
 export default PolitiqueConfidentialitePage;
+
