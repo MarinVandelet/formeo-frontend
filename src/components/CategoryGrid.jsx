@@ -17,8 +17,7 @@ const CategoryGrid = ({ categories, loading, error }) => {
           {Array.from({ length: 6 }).map((_, i) => (
             <div
               key={i}
-              className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
-            >
+              className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
               <div className="flex items-start justify-between gap-3">
                 <div className="space-y-2 flex-1">
                   <div className="h-5 w-40 bg-slate-200 rounded-md animate-pulse" />
@@ -46,9 +45,7 @@ const CategoryGrid = ({ categories, loading, error }) => {
           <p className="text-sm font-medium text-red-700">
             Impossible de charger les catégories.
           </p>
-          <p className="text-xs text-red-600 mt-1">
-            Veuillez réessayer dans un instant.
-          </p>
+          <p className="text-xs text-red-600 mt-1">Veuillez réessayer dans un instant.</p>
         </div>
       </section>
     );
@@ -72,8 +69,7 @@ const CategoryGrid = ({ categories, loading, error }) => {
   return (
     <section
       id="categories"
-      className="max-w-6xl mx-auto px-4 py-10 space-y-6"
-    >
+      className="max-w-6xl mx-auto px-4 py-10 space-y-6">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
         <div>
@@ -105,8 +101,7 @@ const CategoryGrid = ({ categories, loading, error }) => {
           <Link
             key={cat.id}
             to={`/categories/${cat.id}`}
-            className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:shadow-md hover:border-indigo-200 transition"
-          >
+            className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:shadow-md hover:border-indigo-200 transition">
             {/* Fond léger */}
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity">
               <div className="absolute -top-24 -right-24 h-48 w-48 rounded-full bg-indigo-100 blur-2xl" />
@@ -135,7 +130,6 @@ const CategoryGrid = ({ categories, loading, error }) => {
                 </div>
               </div>
 
-              {/* CTA */}
               <div className="mt-4 flex items-center justify-between">
                 <span className="inline-flex items-center gap-2 text-xs font-medium text-indigo-700 bg-indigo-50 border border-indigo-100 px-3 py-1.5 rounded-full">
                   Explorer
