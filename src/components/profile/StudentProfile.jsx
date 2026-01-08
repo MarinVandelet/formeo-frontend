@@ -77,7 +77,7 @@ const StudentProfile = ({ user }) => {
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
 
-  // Signature modal
+  // Signature 
   const [signModalOpen, setSignModalOpen] = useState(false);
   const [signSessionId, setSignSessionId] = useState(null);
   const [signLoading, setSignLoading] = useState(false);
@@ -126,12 +126,10 @@ const StudentProfile = ({ user }) => {
     }
   };
 
-  // Ouvre la popup pour cette session
   const openSignModal = (sessionId) => {
     setSignSessionId(sessionId);
     setSignError("");
     setSignModalOpen(true);
-    // clear éventuelle signature précédente
     if (sigCanvasRef.current) {
       sigCanvasRef.current.clear();
     }
@@ -226,7 +224,7 @@ const StudentProfile = ({ user }) => {
         </div>
       )}
 
-      {/* MES INSCRIPTIONS */}
+      {/* inscriptions */}
       <section className="space-y-3">
         <h2 className="text-lg font-semibold">Mes inscriptions</h2>
 
@@ -240,8 +238,7 @@ const StudentProfile = ({ user }) => {
           {inscriptions.map((ins) => (
             <div
               key={ins.id}
-              className="bg-white border border-slate-200 rounded-xl p-4 flex flex-col gap-2 md:flex-row md:items-center md:justify-between"
-            >
+              className="bg-white border border-slate-200 rounded-xl p-4 flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
               <div className="space-y-1">
                 <p className="text-sm font-medium text-slate-900">
                   {ins.session?.formation?.titre || "Formation"}
@@ -290,8 +287,7 @@ const StudentProfile = ({ user }) => {
                     <button
                       onClick={() => navigate(`/salle/${ins.session.id}`)}
                       className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-slate-900 text-white text-xs hover:bg-slate-800"
-                      title="Accéder à la salle 3D"
-                    >
+                      title="Accéder à la salle 3D">
                       <span className="material-icons text-xs">view_in_ar</span>
                       <span>Salle 3D</span>
                     </button>
@@ -299,8 +295,7 @@ const StudentProfile = ({ user }) => {
                     <button
                       onClick={() => openSignModal(ins.session.id)}
                       className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-emerald-600 text-white text-xs hover:bg-emerald-700"
-                      title="Émarger aujourd'hui"
-                    >
+                      title="Émarger aujourd'hui">
                       <span className="material-icons text-xs">draw</span>
                       <span>Émarger</span>
                     </button>
@@ -312,7 +307,7 @@ const StudentProfile = ({ user }) => {
         </div>
       </section>
 
-      {/* MES ÉMARGEMENTS */}
+      {/* les emargements */}
       <section className="space-y-3 mt-6">
         <h2 className="text-lg font-semibold">Mes émargements</h2>
 
@@ -344,7 +339,7 @@ const StudentProfile = ({ user }) => {
         </div>
       </section>
 
-      {/* MES ATTESTATIONS */}
+      {/* les attestations */}
       <section className="space-y-3 mt-6">
         <h2 className="text-lg font-semibold">Mes attestations</h2>
 
@@ -361,8 +356,7 @@ const StudentProfile = ({ user }) => {
             return (
               <div
                 key={ins.id}
-                className="bg-white border border-slate-200 rounded-xl p-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3"
-              >
+                className="bg-white border border-slate-200 rounded-xl p-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
                 <div className="space-y-1">
                   <p className="text-sm font-medium text-slate-900">
                     {ins.session?.formation?.titre || "Formation"} – Session #
@@ -388,8 +382,7 @@ const StudentProfile = ({ user }) => {
                 <div className="flex justify-end">
                   <button
                     onClick={() => handleDownloadAttestation(ins.id)}
-                    className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-indigo-600 text-white text-xs hover:bg-indigo-700"
-                  >
+                    className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-indigo-600 text-white text-xs hover:bg-indigo-700">
                     <span className="material-icons text-xs">picture_as_pdf</span>
                     <span>Télécharger le PDF</span>
                   </button>
@@ -400,7 +393,7 @@ const StudentProfile = ({ user }) => {
         </div>
       </section>
 
-      {/* MODAL SIGNATURE */}
+      {/* signature */}
       {signModalOpen && (
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-40">
           <div className="bg-white max-w-lg w-full mx-4 rounded-2xl shadow-xl border border-slate-200 p-6 space-y-4">
@@ -442,24 +435,21 @@ const StudentProfile = ({ user }) => {
                 onClick={() =>
                   sigCanvasRef.current && sigCanvasRef.current.clear()
                 }
-                className="px-3 py-1.5 text-xs border border-slate-300 rounded-full hover:bg-slate-100"
-              >
+                className="px-3 py-1.5 text-xs border border-slate-300 rounded-full hover:bg-slate-100">
                 Effacer
               </button>
               <div className="flex gap-2">
                 <button
                   type="button"
                   onClick={closeSignModal}
-                  className="px-3 py-1.5 text-xs border border-slate-300 rounded-full hover:bg-slate-100"
-                >
+                  className="px-3 py-1.5 text-xs border border-slate-300 rounded-full hover:bg-slate-100">
                   Annuler
                 </button>
                 <button
                   type="button"
                   onClick={handleConfirmSignature}
                   disabled={signLoading}
-                  className="px-3 py-1.5 text-xs rounded-full bg-emerald-600 text-white hover:bg-emerald-700 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
+                  className="px-3 py-1.5 text-xs rounded-full bg-emerald-600 text-white hover:bg-emerald-700 disabled:opacity-50 disabled:cursor-not-allowed">
                   {signLoading ? "Enregistrement..." : "Valider ma signature"}
                 </button>
               </div>
