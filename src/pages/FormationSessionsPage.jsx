@@ -64,7 +64,7 @@ const FormationSessionsPage = () => {
     try {
       await createInscription(sessionId);
       setSuccess("Inscription enregistrée !");
-      setShowModal(true); // 👈 ouverture du pop-up
+      setShowModal(true);
     } catch (err) {
       console.error("Erreur inscription:", err);
       const msg =
@@ -84,15 +84,13 @@ const FormationSessionsPage = () => {
         <div className="flex items-center gap-3">
           <Link
             to="/"
-            className="text-xs text-indigo-600 hover:underline inline-flex items-center gap-1"
-          >
+            className="text-xs text-indigo-600 hover:underline inline-flex items-center gap-1">
             <span className="material-icons text-xs">home</span>
             Accueil
           </Link>
           <Link
             to={-1}
-            className="text-xs text-slate-500 hover:underline inline-flex items-center gap-1"
-          >
+            className="text-xs text-slate-500 hover:underline inline-flex items-center gap-1">
             <span className="material-icons text-xs">arrow_back</span>
             Retour
           </Link>
@@ -125,8 +123,7 @@ const FormationSessionsPage = () => {
         {sessions.map((s) => (
           <div
             key={s.id}
-            className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm space-y-2"
-          >
+            className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm space-y-2">
             <h2 className="font-medium text-slate-900">
               {s.formation?.titre || `Session ${s.id}`}
             </h2>
@@ -155,7 +152,7 @@ const FormationSessionsPage = () => {
         ))}
       </div>
 
-      {/* POPUP */}
+      {/* le popup */}
       {showModal && (
         <div className="fixed inset-0 bg-black/30 flex items-center justify-center z-30">
           <div className="bg-white max-w-sm w-full mx-4 rounded-2xl shadow-lg border border-slate-200 p-6 space-y-4">
@@ -170,14 +167,12 @@ const FormationSessionsPage = () => {
             <div className="flex justify-end gap-3 pt-2">
               <button
                 onClick={() => setShowModal(false)}
-                className="px-3 py-1.5 text-xs rounded-full border border-slate-300 text-slate-600 hover:bg-slate-100"
-              >
+                className="px-3 py-1.5 text-xs rounded-full border border-slate-300 text-slate-600 hover:bg-slate-100">
                 Fermer
               </button>
               <button
                 onClick={() => navigate("/profil")}
-                className="px-3 py-1.5 text-xs rounded-full bg-indigo-600 text-white hover:bg-indigo-700 inline-flex items-center gap-1"
-              >
+                className="px-3 py-1.5 text-xs rounded-full bg-indigo-600 text-white hover:bg-indigo-700 inline-flex items-center gap-1">
                 <span className="material-icons text-xs">person</span>
                 <span>Aller à mon profil</span>
               </button>
