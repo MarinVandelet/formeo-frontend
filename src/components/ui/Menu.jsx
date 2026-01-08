@@ -26,8 +26,7 @@ import { ModelDataVisi } from "../../data/ModelDataVisi";export default function
             type="checkbox"
             checked={backfaceCulling}
             onChange={(e) => setBackfaceCulling(e.target.checked)}
-            className="accent-white"
-          />
+            className="accent-white"/>
           <span>Mur Invisible</span>
         </label>
 
@@ -50,8 +49,7 @@ import { ModelDataVisi } from "../../data/ModelDataVisi";export default function
             {ModelDataVisi.map((item) => (
               <label
                 key={item.id}
-                className="flex items-center gap-2 cursor-pointer"
-              >
+                className="flex items-center gap-2 cursor-pointer">
                 <input
                   type="checkbox"
                   checked={visibleElements[item.id]}
@@ -70,7 +68,7 @@ import { ModelDataVisi } from "../../data/ModelDataVisi";export default function
         </div>
       </div>
 
-      {/* Cartes – scroll dans une zone limitée */}
+      {/* Cartes scroll dans une zone */}
       <div className="mt-6">
         <h3 className="font-semibold mb-3">Éléments de la classe</h3>
 
@@ -93,13 +91,11 @@ import { ModelDataVisi } from "../../data/ModelDataVisi";export default function
                   duration-200
                   ease-out
                   hover:scale-105
-                "
-              >
+                ">
                 <img
                   src={item.image}
                   alt={item.label}
-                  className="w-full h-20 object-cover rounded mb-2"
-                />
+                  className="w-full h-20 object-cover rounded mb-2"/>
                 <span className="text-[12px] font-medium">{item.label}</span>
               </button>
             ))}
@@ -109,3 +105,4 @@ import { ModelDataVisi } from "../../data/ModelDataVisi";export default function
     </div>
   );
 }
+
