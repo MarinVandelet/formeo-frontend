@@ -60,8 +60,7 @@ const AdminModal = ({ open, title, children, onClose }) => {
           <h2 className="text-lg font-semibold text-slate-900">{title}</h2>
           <button
             onClick={onClose}
-            className="text-slate-400 hover:text-slate-700"
-          >
+            className="text-slate-400 hover:text-slate-700">
             <span className="material-icons text-xl">close</span>
           </button>
         </div>
@@ -73,12 +72,11 @@ const AdminModal = ({ open, title, children, onClose }) => {
 
 const AdminDashboardPage = () => {
   const [user, setUser] = useState(null);
-  // 👉 nouvel onglet par défaut = statistiques
   const [activeTab, setActiveTab] = useState("stats");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  // USERS
+  // utilisateurs
   const [usersList, setUsersList] = useState([]);
   const [userModalOpen, setUserModalOpen] = useState(false);
   const [editingUser, setEditingUser] = useState(null);
@@ -112,7 +110,7 @@ const AdminDashboardPage = () => {
     dureeJours: "",
   });
 
-  // SESSIONS
+  // sessions
   const [sessions, setSessions] = useState([]);
   const [sessionModalOpen, setSessionModalOpen] = useState(false);
   const [editingSession, setEditingSession] = useState(null);
@@ -126,15 +124,13 @@ const AdminDashboardPage = () => {
     salle: "",
   });
 
-  // Feuilles d'émargement
+  // Feuilles d'emargement
   const [sheetModalOpen, setSheetModalOpen] = useState(false);
   const [sheetSession, setSheetSession] = useState(null);
   const [sheetDate, setSheetDate] = useState("");
   const [sheetLines, setSheetLines] = useState([]);
   const [sheetLoading, setSheetLoading] = useState(false);
   const [sheetError, setSheetError] = useState("");
-
-  // ----------------------------------------------------------------
 
   const loadMe = async () => {
     setLoading(true);
@@ -202,7 +198,6 @@ const AdminDashboardPage = () => {
     setError("");
 
     if (activeTab === "stats") {
-      // pour les stats on a besoin de tout
       loadUsers();
       loadCategories();
       loadFormations();
@@ -223,9 +218,7 @@ const AdminDashboardPage = () => {
     }
   }, [user, activeTab]);
 
-  // ----------------------------------------------------------------
-  // USERS handlers
-  // ----------------------------------------------------------------
+  // onglet utilisateurs 
 
   const openCreateUser = () => {
     setEditingUser(null);
@@ -290,9 +283,7 @@ const AdminDashboardPage = () => {
     }
   };
 
-  // ----------------------------------------------------------------
-  // CATEGORIES handlers
-  // ----------------------------------------------------------------
+  // onglet categories
 
   const openCreateCat = () => {
     setEditingCat(null);
@@ -344,9 +335,7 @@ const AdminDashboardPage = () => {
     }
   };
 
-  // ----------------------------------------------------------------
-  // FORMATIONS handlers
-  // ----------------------------------------------------------------
+  // onglet formations
 
   const openCreateFormation = () => {
     setEditingFormation(null);
@@ -429,9 +418,7 @@ const AdminDashboardPage = () => {
     }
   };
 
-  // ----------------------------------------------------------------
-  // SESSIONS handlers
-  // ----------------------------------------------------------------
+  // onglet sessions
 
   const openCreateSession = () => {
     setEditingSession(null);
@@ -550,7 +537,6 @@ const AdminDashboardPage = () => {
     }
   };
 
-  // ----------------------------------------------------------------
 
   if (loading) {
     return (
@@ -572,9 +558,7 @@ const AdminDashboardPage = () => {
     );
   }
 
-  // ----------------------------------------------------------------
-  // VUES D'ONGLETS
-  // ----------------------------------------------------------------
+  // vue d'onglets
 
   const renderStatsTab = () => {
     const totalUsers = usersList.length;
@@ -696,8 +680,7 @@ const AdminDashboardPage = () => {
       <AdminModal
         open={userModalOpen}
         title={editingUser ? "Modifier l'utilisateur" : "Créer un utilisateur"}
-        onClose={() => setUserModalOpen(false)}
-      >
+        onClose={() => setUserModalOpen(false)}>
         <form className="space-y-3" onSubmit={saveUser}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <div>
@@ -708,8 +691,7 @@ const AdminDashboardPage = () => {
                 onChange={(e) =>
                   setUserForm((f) => ({ ...f, prenom: e.target.value }))
                 }
-                required
-              />
+                required/>
             </div>
             <div>
               <label className="text-xs text-slate-600">Nom</label>
@@ -719,8 +701,7 @@ const AdminDashboardPage = () => {
                 onChange={(e) =>
                   setUserForm((f) => ({ ...f, nom: e.target.value }))
                 }
-                required
-              />
+                required/>
             </div>
           </div>
 
@@ -733,8 +714,7 @@ const AdminDashboardPage = () => {
               onChange={(e) =>
                 setUserForm((f) => ({ ...f, email: e.target.value }))
               }
-              required
-            />
+              required/>
           </div>
 
           <div>
@@ -745,8 +725,7 @@ const AdminDashboardPage = () => {
               onChange={(e) =>
                 setUserForm((f) => ({ ...f, pseudo: e.target.value }))
               }
-              required
-            />
+              required/>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -767,8 +746,7 @@ const AdminDashboardPage = () => {
                 value={userForm.entreprise}
                 onChange={(e) =>
                   setUserForm((f) => ({ ...f, entreprise: e.target.value }))
-                }
-              />
+                }/>
             </div>
           </div>
 
@@ -782,8 +760,7 @@ const AdminDashboardPage = () => {
                   ...f,
                   adressePostale: e.target.value,
                 }))
-              }
-            />
+              }/>
           </div>
 
           <div>
@@ -813,8 +790,7 @@ const AdminDashboardPage = () => {
             </button>
             <button
               type="submit"
-              className="px-3 py-1.5 text-xs rounded-full bg-indigo-600 text-white hover:bg-indigo-700"
-            >
+              className="px-3 py-1.5 text-xs rounded-full bg-indigo-600 text-white hover:bg-indigo-700">
               Enregistrer
             </button>
           </div>
@@ -878,8 +854,7 @@ const AdminDashboardPage = () => {
       <AdminModal
         open={catModalOpen}
         title={editingCat ? "Modifier la catégorie" : "Nouvelle catégorie"}
-        onClose={() => setCatModalOpen(false)}
-      >
+        onClose={() => setCatModalOpen(false)}>
         <form className="space-y-3" onSubmit={saveCategory}>
           <div>
             <label className="text-xs text-slate-600">Nom</label>
@@ -889,21 +864,18 @@ const AdminDashboardPage = () => {
               onChange={(e) =>
                 setCatForm((f) => ({ ...f, nom: e.target.value }))
               }
-              required
-            />
+              required/>
           </div>
           <div className="pt-2 flex justify-end gap-2">
             <button
               type="button"
               onClick={() => setCatModalOpen(false)}
-              className="px-3 py-1.5 text-xs border border-slate-300 rounded-full hover:bg-slate-100"
-            >
+              className="px-3 py-1.5 text-xs border border-slate-300 rounded-full hover:bg-slate-100">
               Annuler
             </button>
             <button
               type="submit"
-              className="px-3 py-1.5 text-xs rounded-full bg-indigo-600 text-white hover:bg-indigo-700"
-            >
+              className="px-3 py-1.5 text-xs rounded-full bg-indigo-600 text-white hover:bg-indigo-700">
               Enregistrer
             </button>
           </div>
@@ -918,8 +890,7 @@ const AdminDashboardPage = () => {
         <h2 className="text-lg font-semibold">Formations</h2>
         <button
           onClick={openCreateFormation}
-          className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-indigo-600 text-white text-xs hover:bg-indigo-700"
-        >
+          className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-indigo-600 text-white text-xs hover:bg-indigo-700">
           <span className="material-icons text-xs">add</span>
           <span>Nouvelle formation</span>
         </button>
@@ -956,14 +927,12 @@ const AdminDashboardPage = () => {
                 <td className="px-3 py-2 text-right">
                   <button
                     onClick={() => openEditFormation(f)}
-                    className="text-xs text-indigo-600 mr-2 hover:underline"
-                  >
+                    className="text-xs text-indigo-600 mr-2 hover:underline">
                     Modifier
                   </button>
                   <button
                     onClick={() => handleDeleteFormation(f)}
-                    className="text-xs text-red-600 hover:underline"
-                  >
+                    className="text-xs text-red-600 hover:underline">
                     Supprimer
                   </button>
                 </td>
@@ -973,8 +942,7 @@ const AdminDashboardPage = () => {
               <tr>
                 <td
                   className="px-3 py-3 text-xs text-slate-500"
-                  colSpan={6}
-                >
+                  colSpan={6}>
                   Aucune formation.
                 </td>
               </tr>
@@ -988,8 +956,7 @@ const AdminDashboardPage = () => {
         title={
           editingFormation ? "Modifier la formation" : "Nouvelle formation"
         }
-        onClose={() => setFormationModalOpen(false)}
-      >
+        onClose={() => setFormationModalOpen(false)}>
         <form className="space-y-3" onSubmit={saveFormation}>
           <div>
             <label className="text-xs text-slate-600">Titre</label>
@@ -1027,8 +994,7 @@ const AdminDashboardPage = () => {
                     ...f,
                     categorieId: e.target.value,
                   }))
-                }
-              >
+                }>
                 <option value="">—</option>
                 {categories.map((c) => (
                   <option key={c.id} value={c.id}>
@@ -1187,7 +1153,6 @@ const AdminDashboardPage = () => {
         </table>
       </div>
 
-      {/* Modal création / édition session */}
       <AdminModal
         open={sessionModalOpen}
         title={editingSession ? "Modifier la session" : "Nouvelle session"}
@@ -1425,8 +1390,6 @@ const AdminDashboardPage = () => {
     </section>
   );
 
-  // ----------------------------------------------------------------
-
   return (
     <div className="max-w-6xl mx-auto px-4 py-8 space-y-6">
       <div className="flex items-center justify-between gap-4">
@@ -1472,7 +1435,6 @@ const AdminDashboardPage = () => {
         ))}
       </div>
 
-      {/* Contenu onglet */}
       {activeTab === "stats" && renderStatsTab()}
       {activeTab === "users" && renderUsersTab()}
       {activeTab === "categories" && renderCategoriesTab()}
