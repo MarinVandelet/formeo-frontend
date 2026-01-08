@@ -67,8 +67,7 @@ const HomePage = () => {
           key={i}
           className={`material-icons text-[18px] ${
             i < rating ? "text-amber-500" : "text-slate-300"
-          }`}
-        >
+          }`}>
           star
         </span>
       ))}
@@ -94,8 +93,7 @@ const HomePage = () => {
 
           <a
             href="#categories"
-            className="inline-flex items-center gap-2 text-sm font-medium text-indigo-700 hover:text-indigo-900"
-          >
+            className="inline-flex items-center gap-2 text-sm font-medium text-indigo-700 hover:text-indigo-900">
             <span>Voir les catégories</span>
             <span className="material-icons text-[18px]">arrow_forward</span>
           </a>
@@ -140,20 +138,19 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* CATEGORIES */}
+      {/* catégories */}
       <section id="categories" className="max-w-6xl mx-auto px-4 pb-10">
         <CategoryGrid categories={categories} loading={loading} error={error} />
       </section>
 
-      {/* REVIEWS */}
+      {/* avis */}
       <section className="max-w-6xl mx-auto px-4 pb-12">
         <div className="bg-white border border-slate-200 rounded-3xl p-6 md:p-8 shadow-sm relative overflow-hidden">
           <div className="absolute inset-0 opacity-[0.08]">
             <img
               src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=70"
               alt=""
-              className="w-full h-full object-cover"
-            />
+              className="w-full h-full object-cover"/>
           </div>
 
           <div className="relative">
@@ -182,8 +179,7 @@ const HomePage = () => {
               {reviews.map((r, i) => (
                 <div
                   key={i}
-                  className="bg-white/80 backdrop-blur border border-slate-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow"
-                >
+                  className="bg-white/80 backdrop-blur border border-slate-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow">
                   <div className="flex items-center gap-3">
                     <img
                       src={r.avatar}
@@ -216,8 +212,7 @@ const HomePage = () => {
               </p>
               <a
                 href="#categories"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-600 text-white text-sm font-medium hover:bg-indigo-700"
-              >
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-600 text-white text-sm font-medium hover:bg-indigo-700">
                 <span>Je découvre les formations</span>
                 <span className="material-icons text-[18px]">arrow_forward</span>
               </a>
