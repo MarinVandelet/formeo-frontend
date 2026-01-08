@@ -44,7 +44,6 @@ const AuthPage = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  // ✅ handler safe
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
@@ -178,7 +177,7 @@ const AuthPage = () => {
             </div>
           </div>
 
-          {/* RIGHT FORM */}
+          {/* form */}
           <div className="rounded-3xl border border-slate-200 bg-white shadow-xl overflow-hidden">
             <div className="p-6 md:p-8 border-b border-slate-200">
               <div className="flex items-start justify-between gap-3">
@@ -384,8 +383,7 @@ const AuthPage = () => {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full rounded-2xl bg-indigo-600 text-white text-base py-3 font-semibold hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed transition flex items-center justify-center gap-2"
-                  >
+                    className="w-full rounded-2xl bg-indigo-600 text-white text-base py-3 font-semibold hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed transition flex items-center justify-center gap-2">
                     <span className="material-icons text-[20px]">
                       {loading ? "hourglass_top" : "person_add"}
                     </span>
