@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import * as THREE from "three";
 import Menu from "../components/ui/Menu";
 import Salle3D from "../components/three/Salle3D";
-import { ModelData } from "../data/ModelData"; // pour le menu/zoom
-import { ModelDataVisi } from "../data/ModelDataVisi"; // pour la visibilité
+import { ModelData } from "../data/ModelData";
+import { ModelDataVisi } from "../data/ModelDataVisi";
 
 
 export default function Salle() {
@@ -12,10 +12,7 @@ export default function Salle() {
   const [backfaceCulling, setBackfaceCulling] = useState(true);
   const [backgroundColor, setBackgroundColor] = useState("#cccccc");
 
-  // Visibilité des éléments
-  // créer l’état initial en inversant la logique de masquage
-
-const defaultVisible = []; // IDs visibles par défaut
+const defaultVisible = []; 
 
 const initialVisibility = Object.fromEntries(
   ModelDataVisi.map((item) =>
@@ -36,9 +33,6 @@ const [visibleElements, setVisibleElements] = useState(initialVisibility);
  const [helpOpen, setHelpOpen] = useState(false);
  
 
-
-
-  // Easing pour déplacement fluide
   const easeOutQuad = (t) => t * (2 - t);
 
   const goToPositionSmooth = (targetPos, targetLookAt = [0, 0, 0], duration = 1000) => {
@@ -88,7 +82,7 @@ const [visibleElements, setVisibleElements] = useState(initialVisibility);
       />
     </div>
 
-    {/* Boutons latéraux */}
+    {/* Boutons */}
     <div
       className={`absolute top-4 z-30 flex flex-col gap-3 transition-all duration-300
       ${menuOpen ? "left-[315px]" : "left-5"}`}
@@ -118,16 +112,14 @@ const [visibleElements, setVisibleElements] = useState(initialVisibility);
       <button
         onClick={() => setHelpOpen((prev) => !prev)}
         className="w-10 h-10 bg-indigo-500 text-white rounded-lg shadow hover:bg-indigo-600"
-        title="Aide clavier"
-      >
+        title="Aide clavier">
         ⌨️
       </button>
 
       <button
         onClick={() => navigate("/profil")}
         className="w-10 h-10 bg-emerald-500 text-white rounded-lg shadow hover:bg-emerald-600"
-        title="Retour au profil étudiant"
-      >
+        title="Retour au profil étudiant">
         👤
       </button>
 
@@ -148,11 +140,11 @@ const [visibleElements, setVisibleElements] = useState(initialVisibility);
     {helpOpen && (
       <div
         className="absolute inset-0 z-40 flex items-center justify-center bg-black/50"
-        onClick={() => setHelpOpen(false)} // clic à l'extérieur
+        onClick={() => setHelpOpen(false)}
       >
         <div
           className="bg-white rounded-xl w-[400px] shadow-xl"
-          onClick={(e) => e.stopPropagation()} // empêche la fermeture quand on clique dedans
+          onClick={(e) => e.stopPropagation()} 
         >
           
           <div className="flex justify-between items-center px-4 py-3 bg-indigo-600 text-white rounded-t-xl">
@@ -200,5 +192,4 @@ const [visibleElements, setVisibleElements] = useState(initialVisibility);
     )}
   </div>
 );
-
 }
