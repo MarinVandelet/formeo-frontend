@@ -7,15 +7,12 @@ const MentionsLegalesPage = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50">
-      {/* CONTENU */}
       <main className="flex-grow">
         <div className="max-w-4xl mx-auto px-4 py-12 text-slate-800">
           
-          {/* Bouton retour */}
           <button
             onClick={() => navigate(-1)}
-            className="inline-flex items-center gap-2 mb-6 text-sm text-indigo-600 hover:text-indigo-800"
-          >
+            className="inline-flex items-center gap-2 mb-6 text-sm text-indigo-600 hover:text-indigo-800">
             <span className="material-icons text-[18px]">arrow_back</span>
             Retour
           </button>
@@ -70,10 +67,10 @@ const MentionsLegalesPage = () => {
         </div>
       </main>
 
-      {/* FOOTER */}
       <Footer />
     </div>
   );
 };
 
 export default MentionsLegalesPage;
+
