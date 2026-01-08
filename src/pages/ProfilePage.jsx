@@ -42,7 +42,6 @@ const ProfilePage = () => {
     );
   }
 
-  // 👉 Un admin est redirigé vers le dashboard
   if (user.role === "ADMIN") {
     return <Navigate to="/admin" replace />;
   }
