@@ -24,10 +24,10 @@ const HeroSlider = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setFadeOut(true); // Fade out
+      setFadeOut(true);
       setTimeout(() => {
         setIndex((prev) => (prev + 1) % slides.length);
-        setFadeOut(false); // Fade in
+        setFadeOut(false);
       }, 400);
     }, 5000);
     return () => clearInterval(interval);
@@ -56,7 +56,7 @@ const HeroSlider = () => {
           </a>
         </div>
         
-        {/* Zone slider images */}
+        {/* slider */}
         <div className="relative h-40 md:h-56 rounded-2xl bg-white/10 border border-white/20 overflow-hidden">
           <div className="absolute inset-0 flex transition-transform duration-1000 ease-in-out"
                style={{ transform: `translateX(-${index * 100}%)` }}>
@@ -71,7 +71,6 @@ const HeroSlider = () => {
             ))}
           </div>
           
-          {/* Dots indicateurs */}
           <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex space-x-2">
             {slides.map((_, i) => (
               <button
