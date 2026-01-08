@@ -3,7 +3,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { fetchFormationsByCategorie } from "../api/formations";
 
 const CategoryFormationsPage = () => {
-  const { id } = useParams(); // id de la catégorie
+  const { id } = useParams();
   const [formations, setFormations] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
