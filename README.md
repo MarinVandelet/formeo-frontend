@@ -116,5 +116,3 @@ Backend prêt pour :
 - Serveur cloud
 - Docker
 - Extension mobile
-
----
