@@ -1,16 +1,120 @@
-# React + Vite
+# TXLFORMA – Backend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## URL du site
 
-Currently, two official plugins are available:
+**http://54.37.158.194/**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Présentation du projet
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+TXLFORMA est une plateforme web de gestion de formations en présentiel destinée aux entreprises et aux particuliers.  
+Ce dépôt correspond à la **partie backend** de l’application, développée avec **Spring Boot** et exposant une **API REST sécurisée**, consommée par un frontend React.
 
-## Expanding the ESLint configuration
+Le backend prend en charge :
+- l’authentification et la gestion des utilisateurs,
+- la gestion des formations, catégories et sessions,
+- l’inscription aux formations,
+- le paiement en ligne,
+- le suivi de présence (émargement numérique),
+- les évaluations des participants,
+- la génération d’attestations PDF.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Architecture générale
+
+L’application suit une **architecture en couches** :
+
+```
+Controller
+   ↓
+Service
+   ↓
+Repository
+   ↓
+Base de données
+```
+
+Des **DTO et Mappers** sont utilisés afin de séparer les modèles internes des données exposées via l’API.
+
+---
+
+## Technologies utilisées
+
+- Spring Boot
+- Spring Security
+- JWT (JSON Web Token)
+- Spring Data JPA
+- Stripe
+- OpenPDF
+- BCrypt
+- REST API
+- DTO / Mapper pattern
+
+---
+
+## Sécurité et authentification
+
+- Authentification basée sur **JWT**
+- Mots de passe chiffrés avec **BCrypt**
+- Filtrage des requêtes via `JwtAuthFilter`
+- Gestion des rôles utilisateurs (`Role`)
+
+---
+
+## Comptes de test
+
+| Rôle | Email | Mot de passe |
+|-----|------|--------------|
+| Administrateur | admin@example.com | Password123! |
+| Formateur | prof@example.com | Password123! |
+| Utilisateur | test@example.com | Password123! |
+
+---
+
+## Fonctionnalités principales
+
+### Utilisateurs
+- Inscription
+- Connexion
+- Gestion des rôles
+
+### Formations
+- Catégories
+- Formations par catégorie
+- Sessions avec capacité limitée
+
+### Paiement
+- Paiement en ligne via **Stripe**
+- Validation automatique de l’inscription
+
+### Émargement & Évaluations
+- Suivi de présence
+- Attribution de notes
+- Génération d’attestations PDF
+
+---
+
+## Lancement du projet
+
+```bash
+mvn clean install
+mvn spring-boot:run
+```
+
+API disponible sur :
+```
+http://localhost:8080
+```
+
+---
+
+## Déploiement
+
+Backend prêt pour :
+- Serveur cloud
+- Docker
+- Extension mobile
+
+---
