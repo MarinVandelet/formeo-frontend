@@ -1,65 +1,65 @@
-# TXLFORMA – Backend
+# TXLFORMA – Frontend
 
 ## URL du site
 
-**http://54.37.158.194/**
+👉 **http://54.37.158.194/**
 
 ---
 
 ## Présentation du projet
 
-TXLFORMA est une plateforme web de gestion de formations en présentiel destinée aux entreprises et aux particuliers.  
-Ce dépôt correspond à la **partie backend** de l’application, développée avec **Spring Boot** et exposant une **API REST sécurisée**, consommée par un frontend React.
+TXLFORMA est une plateforme web de gestion de formations en présentiel.
+Ce dépôt correspond à la **partie frontend** de l’application, développée avec **React** et consommant une **API REST sécurisée** fournie par le backend Spring Boot.
 
-Le backend prend en charge :
-- l’authentification et la gestion des utilisateurs,
-- la gestion des formations, catégories et sessions,
-- l’inscription aux formations,
+Le frontend permet :
+- la consultation des formations et catégories,
+- l’inscription et la connexion des utilisateurs,
 - le paiement en ligne,
-- le suivi de présence (émargement numérique),
-- les évaluations des participants,
-- la génération d’attestations PDF.
-
----
-
-## Architecture générale
-
-L’application suit une **architecture en couches** :
-
-```
-Controller
-   ↓
-Service
-   ↓
-Repository
-   ↓
-Base de données
-```
-
-Des **DTO et Mappers** sont utilisés afin de séparer les modèles internes des données exposées via l’API.
+- l’accès à un espace personnel,
+- la gestion administrateur,
+- l’accès à une salle de formation immersive en 3D.
 
 ---
 
 ## Technologies utilisées
 
-- Spring Boot
-- Spring Security
-- JWT (JSON Web Token)
-- Spring Data JPA
-- Stripe
-- OpenPDF
-- BCrypt
-- REST API
-- DTO / Mapper pattern
+- React
+- Vite
+- React Router DOM
+- Axios
+- Tailwind CSS
+- Three.js
+- React Three Fiber
+- @react-three/drei
+- Stripe (via backend)
 
 ---
 
-## Sécurité et authentification
+## Architecture du projet
 
-- Authentification basée sur **JWT**
-- Mots de passe chiffrés avec **BCrypt**
-- Filtrage des requêtes via `JwtAuthFilter`
-- Gestion des rôles utilisateurs (`Role`)
+```
+src/
+ ├── api/          → appels API (Axios)
+ ├── components/   → composants réutilisables
+ │    ├── ui/
+ │    ├── profile/
+ │    └── three/
+ ├── pages/        → pages principales
+ ├── data/         → données pour la scène 3D
+ ├── App.jsx       → routing
+ └── main.jsx      → point d’entrée
+```
+
+---
+
+## Authentification
+
+- Authentification via **JWT**
+- Token stocké dans le `localStorage`
+- Rôles gérés côté frontend :
+  - USER
+  - INTERVENANT
+  - ADMIN
 
 ---
 
@@ -78,41 +78,64 @@ Des **DTO et Mappers** sont utilisés afin de séparer les modèles internes des
 ### Utilisateurs
 - Inscription
 - Connexion
-- Gestion des rôles
+- Profil utilisateur
+- Accès aux attestations
 
 ### Formations
 - Catégories
-- Formations par catégorie
-- Sessions avec capacité limitée
+- Liste des formations
+- Sessions disponibles
 
 ### Paiement
-- Paiement en ligne via **Stripe**
-- Validation automatique de l’inscription
+- Paiement en ligne via Stripe
+- Page de confirmation
 
-### Émargement & Évaluations
-- Suivi de présence
-- Attribution de notes
-- Génération d’attestations PDF
+### Administration
+- Dashboard admin
+- Gestion utilisateurs
+- Gestion catégories
+- Gestion formations et sessions
+- Consultation des émargements
+
+### Salle immersive 3D
+- Navigation libre
+- Zoom sur éléments
+- Gestion de visibilité
+- Menu interactif
+- Commandes clavier et souris
 
 ---
 
-## Lancement du projet
+## ⚙️ Lancement du projet
+
+### Prérequis
+- Node.js 18+
+- npm ou yarn
+
+### Installation
 
 ```bash
-mvn clean install
-mvn spring-boot:run
+npm install
+npm run dev
 ```
 
-API disponible sur :
+Le frontend est accessible par défaut sur :
 ```
-http://localhost:8080
+http://localhost:5173
 ```
 
 ---
 
-## Déploiement
+## 🚀 Déploiement
 
-Backend prêt pour :
-- Serveur cloud
-- Docker
-- Extension mobile
+Le frontend est :
+- compatible hébergement cloud,
+- prêt pour un build production,
+- connecté à un backend sécurisé.
+
+---
+
+## 📌 Auteur
+
+Projet réalisé dans un cadre académique / professionnel  
+Frontend développé avec **React**
